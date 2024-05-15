@@ -137,6 +137,13 @@ func ChatPrompt(tmpl string, messages []api.Message, window int, encode func(str
 			}
 
 			p.Response = msg.Content
+		case "tool":
+			if p.Response != "" {
+				prompts = append(prompts, p)
+				p = prompt{}
+			}
+
+			p.Response = msg.Content
 		default:
 			return "", fmt.Errorf("invalid role: %s, role must be one of [system, user, assistant]", msg.Role)
 		}

@@ -286,7 +286,7 @@ func isNewline(r rune) bool {
 }
 
 func isValidMessageRole(role string) bool {
-	return role == "system" || role == "user" || role == "assistant"
+	return role == "system" || role == "user" || role == "assistant" || role == "tool"
 }
 
 func isValidCommand(cmd string) bool {
